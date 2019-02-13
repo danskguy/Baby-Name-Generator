@@ -1,0 +1,114 @@
+
+// Action that creates the Name
+var btn = document.getElementById('gen-name');
+
+// Choosing a First Name
+var babyBoy = document.getElementById('boy');
+var babyGirl = document.getElementById('girl');
+var BabyContainer = document.getElementById("babies");
+
+//Choosing a Last name
+var lastName = document.getElementById('last-name');
+var BabyLastContainer = document.getElementById('baby-last')
+
+// Generates the Names
+btn.addEventListener('click', function(event) {
+    babyBirth();
+});
+
+// Puts the name together
+function babyBirth() {
+    return displayNames() + " " + displayLastName();
+}
+
+// Filters Middle Name
+function randFilteredElem(arr,filter){
+    var element = getRandElem(arr);
+    while(element === filter){
+        element = getRandElem(arr);
+    }
+    return element;
+}
+
+// selcets the first and Second Name
+function displayNames() {
+    if(babyBoy.checked){
+        var randomFirstName = getRandElem(boyList);
+        var randomSecondName = randFilteredElem(boyList, randomFirstName);
+    } else if(babyGirl.checked) {
+        var randomFirstName = getRandElem(girlList);
+        var randomSecondName = randFilteredElem(girlList, randomFirstName);
+    } else {
+        alert("You need to choose a gender, there are only 2!");
+    }    
+    var newBaby = document.createElement('div');
+    var BabyName = document.createElement('h3');
+    BabyName.innerText = randomFirstName.name + " " + randomSecondName.name;
+    newBaby.appendChild(BabyName);
+       // Baby Name!
+    BabyContainer.innerHTML = newBaby.outerHTML;
+};
+
+// Choosing a color
+
+/* function getcolor() {
+    if(babyBoy.checked) {
+        var babyColor = displayNames().fontcolor("blue");
+    } else if(babyGirl.checked) {
+        var babyColor = displayNames().fontcolor("pink");
+    }
+    document.getElementById("babies").innerHTML = babyColor;
+}
+*/
+
+/* function myFunction(arr) {
+    var str = babyBirth(arr);
+    var result = str.fontcolor("blue");
+    document.getElementById("babies").innerHTML = result;
+  } 
+*/
+
+/*function displayMiddleName() {
+    if(babyBoy.checked){
+        var randomFirstName = getRandElem(boyList);
+        var randomSecondName = randFilteredElem(boylist, randomFirstName);
+    } else if(babyGirl.checked) {
+        var randomFirstName = getRandElem(girlList);
+        var randomSecondName = randFilteredElem(girlList, randomFirstName);
+    } else {
+        alert("You need to choose a gender, there are only 2!");
+    }    
+    var newBaby = document.createElement('div');
+    var BabyName = document.createElement('h3');
+    BabyName.innerText = randomFirstName.name + " " + randomSecondName.name;
+    newBaby.appendChild(BabyName);
+       // Baby Name!
+    BabyContainer.innerHTML = newBaby.outerHTML;
+}; */
+
+
+
+
+
+// Takes the last name that was typed
+function displayLastName() {
+    if(lastName.value.length === 0) {
+        alert("Does your baby not have a family? Put your last name")
+    }
+    var newLastName = document.createElement('div');
+    var BabyLastName = document.createElement('h3');
+    BabyLastName.innerText = lastName.value;
+    newLastName.appendChild(BabyLastName);
+    // Baby Last Name
+    BabyLastContainer.innerHTML = newLastName.outerHTML;
+ };
+
+// Gets a random Name
+function getRandElem(arr){
+    return arr[genRandNum(0, arr.length - 1)];
+}
+
+// Chooses a random number in the Array
+function genRandNum(min,max){
+    return Math.floor(Math.random() * (max-min + 1)) + min;
+}

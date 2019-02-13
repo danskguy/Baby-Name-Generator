@@ -1,0 +1,64 @@
+body {
+
+}
+
+#gener {
+
+}
+
+h1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: inherit;
+}
+
+h4 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: cursive;
+}
+
+#info {
+    display: flex;
+}
+#gender {
+    display: flex;
+    justify-content: flex-end;
+    width: 45%;
+    padding: 0px 5%
+}
+
+#last-name {
+    height: 17px;
+    width: 145px;
+    border-radius: 5px;
+}
+
+.name-gen {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+#gen-name {
+    border-radius: 5px;
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+}
+
+#babies {
+    padding: 2px;
+}
+
+#baby-last {
+    padding: 2px 1%;
+}
+
+#middle-name {
+
+}
